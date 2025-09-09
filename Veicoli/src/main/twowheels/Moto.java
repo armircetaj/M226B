@@ -1,10 +1,11 @@
 package main.twowheels;
 
 import main.Veicolo;
+import main.interfaces.Assicurabile;
 
 import java.util.Objects;
 
-public class Moto extends Veicolo {
+public class Moto extends Veicolo implements Assicurabile {
     private String tipo;
     public Moto(String targa, String marca, String modello, int numero, String tipo) {
         super(targa, marca, modello, numero);
@@ -17,6 +18,9 @@ public class Moto extends Veicolo {
         this.tipo = tipo;
     }
 
+    public double getCostoAssicurazione() {
+
+    }
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
