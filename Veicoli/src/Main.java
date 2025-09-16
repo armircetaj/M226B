@@ -16,8 +16,8 @@ public class Main {
         Auto miaAuto = new Auto("12121","Giovans","Giov",222,4);
         Moto miaMoto = new Moto("12121","Giovans","Giov",222,"Giovans");
         Camion mioCamion = new Camion(3);
-        miaAuto.calcolaCostoRiparabile(10);
-        miaMoto.getCostoAssicurazione();
+        System.out.println(miaAuto.calcolaCostoRiparabile(10));
+        System.out.println(miaMoto.getCostoAssicurazione());
         Assicurabile ass;
         Riparabile rip;
         List<Riparabile> veicoliInRiparazione = new ArrayList<>();
@@ -27,6 +27,6 @@ public class Main {
         Officina miaOfficina = new Officina(veicoliInRiparazione);
         AgenziaAssicurativa miaAgenzia = new AgenziaAssicurativa(veicoliAssicurati);
         miaOfficina.stampaSchedarioRiparazioni();
-        miaAgenzia.calcolaIncassoTotale();
+        System.out.println(miaAgenzia.calcolaIncassoTotale());
     }
 }

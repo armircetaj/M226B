@@ -19,7 +19,7 @@ public class Moto extends Veicolo implements Assicurabile {
     }
 
     public double getCostoAssicurazione() {
-
+        return 250.0;
     }
     @Override
     public boolean equals(Object o) {
