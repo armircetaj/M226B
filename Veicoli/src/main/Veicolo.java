@@ -3,7 +3,7 @@ package main;
 public class Veicolo {
     private String targa;
     private String marca;
-    private final String modello;
+    private String modello;
     private int numero;
 
     public Veicolo(String targa, String marca, String modello, int numero) {
