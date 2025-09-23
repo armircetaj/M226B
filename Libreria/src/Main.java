@@ -1,5 +1,7 @@
 import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.Set;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -8,7 +10,7 @@ public class Main {
         DigitalMagazine digmagazine1 = new DigitalMagazine(2, LocalDate.of(2025, 2, 1), "Fiction", 3, "Il Libro 3", "Giovanni Fois", 13, 2);
         OnlineCourse course1 = new OnlineCourse("Giovanni Fois", Difficulty.INTERMEDIATE, 21, 4, "Il Libro 4", "Giovanni Fois", 10,15);
 
-        HashSet<Purchasable> set = new HashSet<>();
+        Set<Purchasable> set = new HashSet<>();
 
         set.add(ebook1);
         set.add(abook1);
