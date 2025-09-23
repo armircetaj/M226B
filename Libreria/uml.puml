@@ -86,7 +86,12 @@ class Ebook {
 
 
 
-
+Main --> OnlineCourse
+Main --> AudioBook
+Main --> Ebook
+Main --> DigitalMagazine
+Ebook --> Genre
+OnlineCourse --> Difficulty
 DigitalContent <|-- OnlineCourse
 DigitalContent <|-- AudioBook
 Purchasable <|.. DigitalContent
