@@ -1,0 +1,95 @@
+@startuml
+interface Purchasable {
++ double calculatePrice()
++ void applyDiscount(double)
++ {static} double getDefaultTaxRate()
++ double getPriceWithTax()
+}
+
+class Main {
++ {static} void main(String[])
+}
+
+class OnlineCourse {
+- String instructor
+- Difficulty difficulty
+- int estimatedHours
++ boolean getCertificationEligible()
++ boolean equals(Object)
++ int hashCode()
++ String getContentType()
++ String getDescription()
++ void applyDiscount(double)
+}
+
+
+class AudioBook {
+- String narrator
+- int duration
+- String language
++ DateFormat getFormattedDuration()
++ String getContentType()
++ String getDescription()
++ double calculatePrice()
++ void applyDiscount(double)
+}
+
+
+abstract class DigitalContent {
+- int id
+- String title
+- String author
+- double basePrice
+- double currentDiscount
++ void applyDiscount()
++ double calculatePrice()
++ {abstract}String getContentType()
++ {abstract}String getDescription()
+}
+
+
+enum Genre {
++  FICTION
++  NON_FICTION
++  BIOGRAPHY
++  SCIENCE
++  TECHNOLOGY
+}
+
+class DigitalMagazine {
+- int issueNumber
+- LocalDate publicationDate
+- String category
++ boolean isRecentIssue()
++ String getContentType()
++ String getDescription()
++ void applyDiscount(double)
+}
+
+
+enum Difficulty {
++  BEGINNER
++  INTERMEDIATE
++  ADVANCED
+}
+
+class Ebook {
+- Genre genre
+- int pageCount
+- boolean isIllustrated
++ int getReadingTime()
++ String getContentType()
++ String getDescription()
++ double calculatePrice()
++ void applyDiscount(double)
+}
+
+
+
+
+DigitalContent <|-- OnlineCourse
+DigitalContent <|-- AudioBook
+Purchasable <|.. DigitalContent
+DigitalContent <|-- DigitalMagazine
+DigitalContent <|-- Ebook
+@enduml
