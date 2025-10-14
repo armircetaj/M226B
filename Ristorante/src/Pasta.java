@@ -3,9 +3,32 @@ public class Pasta implements MenuItem {
     private double price;
     private boolean isGlutenFree;
 
+    public Pasta(String name, double price, boolean isGlutenFree) {
+        this.name = name;
+        this.price = price;
+        this.isGlutenFree = isGlutenFree;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public boolean isGlutenFree() {
+        return isGlutenFree;
+    }
+
     @Override
     public double calculatePrice() {
-        return price;
+        if (isGlutenFree) {
+            return price + 0.60;
+        }
+        else {
+            return price;
+        }
     }
 
     @Override
@@ -14,7 +37,7 @@ public class Pasta implements MenuItem {
             return "Pasta " + name + " (senza glutine)";
         }
         else {
-            return "Pasta " + name + " (con glutine)";
+            return "Pasta " + name;
         }
     }
 

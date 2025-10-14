@@ -3,10 +3,32 @@ public class Dessert implements MenuItem {
     private double basePrice;
     private boolean hasExtraTopping;
 
+    public Dessert(String name, double basePrice, boolean hasExtraTopping) {
+        this.name = name;
+        this.basePrice = basePrice;
+        this.hasExtraTopping = hasExtraTopping;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getBasePrice() {
+        return basePrice;
+    }
+
+    public boolean isHasExtraTopping() {
+        return hasExtraTopping;
+    }
 
     @Override
     public double calculatePrice() {
-        return basePrice;
+        if (hasExtraTopping) {
+            return basePrice + 1.5;
+        }
+        else {
+            return basePrice;
+        }
     }
 
     @Override

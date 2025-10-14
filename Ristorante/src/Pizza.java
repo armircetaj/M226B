@@ -5,17 +5,32 @@ public class Pizza implements MenuItem {
     private double basePrice;
     private ArrayList<String> toppings;
 
+    public Pizza(String name, double basePrice, ArrayList<String> toppings) {
+        this.name = name;
+        this.basePrice = basePrice;
+        this.toppings = toppings;
+    }
 
+    public String getTopping() {
+        return String.join(", ", toppings);
+    }
 
+    public String getName() {
+        return name;
+    }
 
-    @Override
-    public double calculatePrice() {
+    public double getBasePrice() {
         return basePrice;
     }
 
     @Override
+    public double calculatePrice() {
+        return basePrice + toppings.size();
+    }
+
+    @Override
     public String getDescription() {
-        return "Pizza " + name + " con: " + toppings;
+        return "Pizza " + name + " con: " + String.join(", ", toppings);
     }
 
     @Override
