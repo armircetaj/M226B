@@ -12,16 +12,12 @@ public class RestaurantManager {
     private String stringone2 = "";
     private double doubleone;
     private double doubleone2;
-    private Map<MenuItem, Integer> maxEntry = new HashMap<>();
     private Map<MenuItem, Integer> orders = new HashMap<>();
 
     public RestaurantManager(ArrayList<MenuItem> menuItems, ArrayList<Clienti> clients) {
         this.menuItems = menuItems;
         orderedItems = new ArrayList<>();
         this.clients = clients;
-    }
-    public void addMenuItem(MenuItem menuItem) {
-        menuItems.add(menuItem);
     }
     public String showMenu() {
         for(MenuItem menuItem : menuItems) {
