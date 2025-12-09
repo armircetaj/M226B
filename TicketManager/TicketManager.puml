@@ -1,0 +1,101 @@
+@startuml
+class ch.samt.ticketmanager.Main {
++ {static} void main(String[])
+}
+
+class ch.samt.ticketmanager.tickets.ConcertTicket {
+- String sector
+- String mainArtist
++ String getSector()
++ String getMainArtist()
++ double calculateTicketPrice()
++ String toString()
+}
+
+
+abstract class ch.samt.ticketmanager.tickets.Ticket {
+- String ticketCode
+- String eventName
+- String date
+- String place
+- int seatNumber
+- boolean sold
+- Event eventType
++ double calculateTicketPrice()
++ void sellTicket()
++ Event getEventType()
++ String isSold()
++ String getTicketCode()
++ String getEventName()
++ String getDate()
++ String getPlace()
++ int getSeatNumber()
+}
+
+
+class ch.samt.ticketmanager.manager.TicketManager {
+- List<Ticket> tickets
+- List<Ticket> availableTickets
+- String stringone
+- double doubleone
+- double avg
++ String addTicket(Ticket)
++ String printTickets()
++ void updateTicketArray(Ticket)
++ String sellTicket(String)
++ String soldOutTicket(Ticket)
++ String getAvailableTickets()
++ double getTotalRevenue()
++ String getSpecificTickets(String)
++ String getTicketsByPrice()
++ String getSpecificEventTickets(Event)
++ double getAveragePrice()
+}
+
+
+interface ch.samt.ticketmanager.tickets.TicketStructure {
+~ double calculateTicketPrice()
+~ void sellTicket()
+~ Event getEventType()
+~ String isSold()
+}
+
+class ch.samt.ticketmanager.tickets.SportTicket {
+- String sector
++ String getSector()
++ double calculateTicketPrice()
++ String toString()
+}
+
+
+class ch.samt.ticketmanager.tickets.TheaterTicket {
+- String showTitle
+- int row
+- boolean studentDiscount
++ String getShowTitle()
++ int getRow()
++ boolean isStudentDiscount()
++ double calculateTicketPrice()
++ String toString()
+}
+
+
+enum ch.samt.ticketmanager.tickets.Event {
++  CONCERT
++  THEATER
++  SPORT
+}
+
+Main --> ch.samt.ticketmanager.manager.TicketManager
+ch.samt.ticketmanager.manager.TicketManager "3" --> ch.samt.ticketmanager.tickets.ConcertTicket
+ch.samt.ticketmanager.manager.TicketManager "3" --> ch.samt.ticketmanager.tickets.SportTicket
+ch.samt.ticketmanager.manager.TicketManager "3" --> ch.samt.ticketmanager.tickets.TheaterTicket
+ch.samt.ticketmanager.tickets.Event --> ch.samt.ticketmanager.tickets.TheaterTicket
+ch.samt.ticketmanager.tickets.Event --> ch.samt.ticketmanager.tickets.SportTicket
+ch.samt.ticketmanager.tickets.Event --> ch.samt.ticketmanager.tickets.ConcertTicket
+
+ch.samt.ticketmanager.tickets.Ticket <|-- ch.samt.ticketmanager.tickets.ConcertTicket
+ch.samt.ticketmanager.tickets.TicketStructure <|.. ch.samt.ticketmanager.tickets.Ticket
+ch.samt.ticketmanager.tickets.Ticket <|-- ch.samt.ticketmanager.tickets.SportTicket
+ch.samt.ticketmanager.tickets.Ticket <|-- ch.samt.ticketmanager.tickets.TheaterTicket
+@enduml
