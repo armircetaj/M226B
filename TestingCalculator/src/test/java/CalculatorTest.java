@@ -13,7 +13,7 @@ public class CalculatorTest {
     @Test
     public void divisionTest() {
         Calculator c = new Calculator();
-        int r = c.division(4, 0);
+        int r = c.division(4, 2);
         assertEquals(r, 2);
     }
 }
